@@ -14,14 +14,19 @@ public class Main {
 	public static void main(String[] args) throws IOException  {
 		// TODO Auto-generated method stub
 		String fileName = "Music.txt";
-		
+		while(true){
+		Menu(fileName);
+		}
+	}
+	public static void Menu(String fileName) throws IOException{
+		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
-		System.out.println("»¶Ó­À´µ½ÒôÀÖ¹ÜÀíÏµÍ³");
-		System.out.println("1.ÏÔÊ¾¸èÇú");
-		System.out.println("2.²éÕÒ¸èÇú");
-		System.out.println("3.Ôö¼Ó¸èÇú");
-		System.out.println("4.É¾³ı¸èÇú");
-		System.out.println("ÇëÑ¡Ôñ£º");
+		System.out.println("æ¬¢è¿æ¥åˆ°éŸ³ä¹ç®¡ç†ç³»ç»Ÿ");
+		System.out.println("1.æ˜¾ç¤ºæ­Œæ›²");
+		System.out.println("2.æŸ¥æ‰¾æ­Œæ›²");
+		System.out.println("3.å¢åŠ æ­Œæ›²");
+		System.out.println("4.åˆ é™¤æ­Œæ›²");
+		System.out.println("è¯·é€‰æ‹©ï¼š");
 		String choice = sc.nextLine();
 		switch (choice) {
 		case "1":
@@ -40,12 +45,11 @@ public class Main {
 			deleteMusic(fileName);
 			break;
 		default:
-			System.out.println("ÊäÈë´íÎó£¡");
+			System.out.println("è¾“å…¥é”™è¯¯ï¼");
 			System.exit(0);
 			break;
 		}
 	}
-	
 	public static void readData(String fileName,ArrayList<Music> array) throws IOException {
 		BufferedReader br = new BufferedReader(new FileReader(fileName));
 		
@@ -84,10 +88,10 @@ public class Main {
 		readData(fileName,array);
 		
 		if (array.size() == 0) {
-			System.out.println("Ã»ÓĞÒôÀÖĞÅÏ¢£¡");
+			System.out.println("æ²¡æœ‰éŸ³ä¹ä¿¡æ¯ï¼");
 			return;
 		} else {
-			System.out.println("ID\tÃû³Æ\t¸èÊÖ\tÓïÑÔ\tÀà±ğ ");
+			System.out.println("ID\tåç§°\tæ­Œæ‰‹\tè¯­è¨€\tç±»åˆ« ");
 			for (int i = 0; i < array.size(); i++) {
 				Music m = array.get(i);
 				System.out.println(m.getID() +"\t"+ m.getName() +"\t"+ m.getSinger() +"\t" + m.getClasses() +"\t" + m.getLanguage());
@@ -103,34 +107,34 @@ public class Main {
 		readData(fileName,array);
 		String id,name,singer,language,classes;
 		String c;
-		System.out.println("1.°´ID²éÑ¯");
-		System.out.println("2.°´Ãû³Æ²éÑ¯");
-		System.out.println("3.°´¸èÊÖ²éÑ¯");
-		System.out.println("4.°´ÀàĞÍ²éÑ¯");
-		System.out.println("5.°´ÓïÑÔ²éÑ¯");
-		System.out.println("ÇëÑ¡Ôñ£º");
+		System.out.println("1.æŒ‰IDæŸ¥è¯¢");
+		System.out.println("2.æŒ‰åç§°æŸ¥è¯¢");
+		System.out.println("3.æŒ‰æ­Œæ‰‹æŸ¥è¯¢");
+		System.out.println("4.æŒ‰ç±»å‹æŸ¥è¯¢");
+		System.out.println("5.æŒ‰è¯­è¨€æŸ¥è¯¢");
+		System.out.println("è¯·é€‰æ‹©ï¼š");
 		c = sc.nextLine();
 		boolean flag = false;
 		switch (c) {
 		case "1":
-			System.out.println("ÇëÊäÈëID£¡");
+			System.out.println("è¯·è¾“å…¥IDï¼");
 			id = sc.nextLine();
 			for (int i = 0; i < array.size(); i++) {
 				Music m = array.get(i);
 				if(m.getID().equals(id)) {
-					System.out.println("ID\tÃû³Æ\t¸èÊÖ\tÀà±ğ\tÓïÑÔ ");
+					System.out.println("ID\tåç§°\tæ­Œæ‰‹\tç±»åˆ«\tè¯­è¨€ ");
 					System.out.println(m.getID() +"\t"+ m.getName() +"\t"+ m.getSinger() +"\t" + m.getLanguage() +"\t" + m.getClasses());
 					flag = true;
 				}
 			}
 			if (flag == false) {
-					System.out.println("Î´ÕÒµ½¸èÇúĞÅÏ¢£¡");
+					System.out.println("æœªæ‰¾åˆ°æ­Œæ›²ä¿¡æ¯ï¼");
 			}
 			break;
 		case "2":
-			System.out.println("ÇëÊäÈëÃû³Æ£¡");
+			System.out.println("è¯·è¾“å…¥åç§°ï¼");
 			name = sc.nextLine();
-			System.out.println("ID\tÃû³Æ\t¸èÊÖ\tÀà±ğ\tÓïÑÔ ");
+			System.out.println("ID\tåç§°\tæ­Œæ‰‹\tç±»åˆ«\tè¯­è¨€ ");
 			for (int i = 0; i < array.size(); i++) {
 				Music m = array.get(i);
 				if(m.getName().equals(name)) {
@@ -139,14 +143,14 @@ public class Main {
 				}
 			}
 			if (flag == false) {
-				System.out.println("Î´ÕÒµ½¸èÇúĞÅÏ¢£¡");
+				System.out.println("æœªæ‰¾åˆ°æ­Œæ›²ä¿¡æ¯ï¼");
 			}
 			break;
 
 		case "3":
-			System.out.println("ÇëÊäÈë¸èÊÖ£¡");
+			System.out.println("è¯·è¾“å…¥æ­Œæ‰‹ï¼");
 			singer = sc.nextLine();
-			System.out.println("ID\tÃû³Æ\t¸èÊÖ\tÀà±ğ\tÓïÑÔ ");
+			System.out.println("ID\tåç§°\tæ­Œæ‰‹\tç±»åˆ«\tè¯­è¨€ ");
 			for (int i = 0; i < array.size(); i++) {
 				Music m = array.get(i);
 				if(m.getSinger().equals(singer)) {
@@ -156,14 +160,14 @@ public class Main {
 				}
 			}
 			if (flag == false) {
-				System.out.println("Î´ÕÒµ½¸èÇúĞÅÏ¢£¡");
+				System.out.println("æœªæ‰¾åˆ°æ­Œæ›²ä¿¡æ¯ï¼");
 			}
 			break;
 
 		case "4":
-			System.out.println("ÇëÊäÈëÀàĞÍ£¡");
+			System.out.println("è¯·è¾“å…¥ç±»å‹ï¼");
 			language = sc.nextLine();
-			System.out.println("ID\tÃû³Æ\t¸èÊÖ\tÀà±ğ\tÓïÑÔ ");
+			System.out.println("ID\tåç§°\tæ­Œæ‰‹\tç±»åˆ«\tè¯­è¨€ ");
 			for (int i = 0; i < array.size(); i++) {
 				Music m = array.get(i);
 				if(m.getLanguage().equals(language)) {
@@ -172,14 +176,14 @@ public class Main {
 				}
 			}
 			if (flag == false) {
-				System.out.println("Î´ÕÒµ½¸èÇúĞÅÏ¢£¡");
+				System.out.println("æœªæ‰¾åˆ°æ­Œæ›²ä¿¡æ¯ï¼");
 			}
 			break;
 
 		case "5":
-			System.out.println("ÇëÊäÈëÓïÑÔ£¡");
+			System.out.println("è¯·è¾“å…¥è¯­è¨€ï¼");
 			classes = sc.nextLine();
-			System.out.println("ID\tÃû³Æ\t¸èÊÖ\tÀà±ğ\tÓïÑÔ ");
+			System.out.println("ID\tåç§°\tæ­Œæ‰‹\tç±»åˆ«\tè¯­è¨€ ");
 			for (int i = 0; i < array.size(); i++) {
 				Music m = array.get(i);
 				if(m.getClasses().equals(classes)) {
@@ -188,11 +192,11 @@ public class Main {
 				}
 			}
 			if (flag == false) {
-				System.out.println("Î´ÕÒµ½¸èÇúĞÅÏ¢£¡");
+				System.out.println("æœªæ‰¾åˆ°æ­Œæ›²ä¿¡æ¯ï¼");
 			}
 			break;
 		default:
-			System.out.println("ÊäÈë´íÎó£¡");
+			System.out.println("è¾“å…¥é”™è¯¯ï¼");
 			break;
 		}
 		
@@ -205,7 +209,7 @@ public class Main {
 		readData(fileName,array);
 		String id;
 		while(true) {
-		System.out.println("ÊäÈë¸èÇúID");
+		System.out.println("è¾“å…¥æ­Œæ›²ID");
 		id = sc.nextLine();
 		boolean flag = false;
 		for (int i = 0; i < array.size(); i++) {
@@ -217,20 +221,20 @@ public class Main {
 			}
 		}
 			if (flag) {
-				System.out.println("ÒôÀÖÒÑ´æÔÚ£¡");
+				System.out.println("éŸ³ä¹å·²å­˜åœ¨ï¼");
 			}
 			else {
 				break;
 			}
 		}
 		
-		System.out.println("ÊäÈë¸èÇúÃû³Æ");
+		System.out.println("è¾“å…¥æ­Œæ›²åç§°");
 		String name = sc.nextLine();
-		System.out.println("ÊäÈë¸èÊÖ");
+		System.out.println("è¾“å…¥æ­Œæ‰‹");
 		String singer = sc.nextLine();
-		System.out.println("ÊäÈë¸èÇúÓïÑÔ");
+		System.out.println("è¾“å…¥æ­Œæ›²è¯­è¨€");
 		String classes = sc.nextLine();
-		System.out.println("ÊäÈë¸èÇúÀà±ğ");
+		System.out.println("è¾“å…¥æ­Œæ›²ç±»åˆ«");
 		String language = sc.nextLine();
 		Music mm = new Music();
 		mm.setID(id);
@@ -241,7 +245,7 @@ public class Main {
 		
 		array.add(mm);
 		writeData(fileName,array);
-		System.out.println("Ìí¼Ó³É¹¦£¡");	
+		System.out.println("æ·»åŠ æˆåŠŸï¼");	
 	}
 	
 	public static void deleteMusic(String fileName) throws IOException {
@@ -250,7 +254,7 @@ public class Main {
 		while(true) {
 			@SuppressWarnings("resource")
 			Scanner sc = new Scanner(System.in);
-			System.out.println("ÇëÊäÈëÒªÉ¾³ıµÄ¸èÇúID¡£");
+			System.out.println("è¯·è¾“å…¥è¦åˆ é™¤çš„æ­Œæ›²IDã€‚");
 			String id = sc.nextLine();
 			int index = -1;
 			for (int i = 0; i < array.size(); i++) {
@@ -261,11 +265,11 @@ public class Main {
 				}
 			}
 			if (index == -1) {
-				System.out.println("¸èÇú²»´æÔÚ£¡");
+				System.out.println("æ­Œæ›²ä¸å­˜åœ¨ï¼");
 			} else {
 				array.remove(index);
 				writeData(fileName,array);
-				System.out.println("É¾³ıÒôÀÖ³É¹¦£¡");
+				System.out.println("åˆ é™¤éŸ³ä¹æˆåŠŸï¼");
 				break;
 
 			}
